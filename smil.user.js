@@ -93,7 +93,7 @@ function smile(animating) {
 	// NOTE: feature strings are broken in ASV - apparently only declarative switch declarations work
 	// (we have already filter this implementation, though, during the loading phase)
 	// http://tech.groups.yahoo.com/group/svg-developers/message/61236
-	ns2proc[svgns] = !impl.hasFeature("http://www.w3.org/TR/SVG11/feature#Animation", "1.1"); //&& !impl.hasFeature("org.w3c.svg.animation", "1.0");
+	ns2proc[svgns] = !(document.createElementNS && /SVGAnimate/.test(document.createElementNS("http://www.w3.org/2000/svg", "animate")))
 	ns2proc[smilanimns] = !impl.hasFeature(smilanimns, "1.1");
 	ns2proc[smil2ns] = !impl.hasFeature(smil2ns, "2.0");
 	ns2proc[smil21ns] = !impl.hasFeature(smil21ns, "2.1");
@@ -1577,3 +1577,4 @@ try {
 	// (but that's not an issue as most popular versions, ASV3 and ASV6 beta, both support SMIL)
 	window.addEventListener("load", initSMIL, false);
 } catch(exc) {}
+tch(exc) {}
