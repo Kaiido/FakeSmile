@@ -1577,4 +1577,3 @@ try {
 	// (but that's not an issue as most popular versions, ASV3 and ASV6 beta, both support SMIL)
 	window.addEventListener("load", initSMIL, false);
 } catch(exc) {}
-tch(exc) {}
